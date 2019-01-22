@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,shrink-to-fit=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>init-admin</title>
+  </head>
+  <script>
+    // 根据设计稿的宽度来传参 比如640 750 1125
+    (function(designWidth) {
+      if (/Android(?:\s+|\/)(\d+\.\d+)?/.test(navigator.userAgent)) {
+        var version = parseFloat(RegExp.$1);
+        if (version > 2.3) {
+          var phoneScale = parseInt(window.screen.width) / designWidth;
+          document.write("<meta name=\"viewport\" content=\"width=" + designWidth + ",minimum-scale=" + phoneScale + ",maximum-scale=" + phoneScale + ", target-densitydpi=device-dpi,user-scalable=no\">");
+        } else {
+          document.write("<meta name=\"viewport\" content=\"width=" + designWidth + ",target-densitydpi=device-dpi,user-scalable=no\">");
+        }
+      } else {
+        document.write("<meta name=\"viewport\" content=\"width=" + designWidth + ",user-scalable=no,target-densitydpi=device-dpi,minimal-ui,viewport-fit=cover\">");
+      }
+    })(500);
+  </script>
+  <body>
+    <noscript>
+      <strong>We're sorry but init-admin doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
