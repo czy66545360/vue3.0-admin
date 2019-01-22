@@ -9,6 +9,7 @@ import utils from '@/utils'; // 工具包
 import '@/flyio'; // jajax
 
 Vue.use(iView, {
+  transferL: false,
   // size: 'small',
 });
 
